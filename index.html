@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>KeyboardTest | Absolute Omega v8.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">OMEGA TEST v8.0</div>
+    <div class="top-ui">
+        <div class="ui-box"><label>Layout</label>
+            <select id="layoutSel">
+                <option value="layout-100">100% Full</option>
+                <option value="layout-80">80% TKL</option>
+                <option value="layout-75">75% Compact</option>
+            </select>
+        </div>
+        <div class="ui-box"><label>Switches</label>
+            <select id="soundType">
+                <option value="clicky">Blue Clicky</option>
+                <option value="linear">Red Linear</option>
+                <option value="tactile">Brown Tactile</option>
+            </select>
+        </div>
+        <div class="ui-box"><div class="circle-picker" id="wpL"><input type="color" id="cL" value="#ff4b82"></div></div>
+        <div class="ui-box"><div class="circle-picker" id="wpR"><input type="color" id="cR" value="#00ff88"></div></div>
+        <div class="ui-box"><div class="circle-picker" id="wpK"><input type="color" id="cK" value="#00d4ff"></div></div>
+    </div>
+</header>
+
+<div class="viewport">
+    <div class="ambient-glow"></div>
+    <div class="keyboard layout-100" id="kb">
+        <div class="lock-indicators">
+            <div class="led-group"><div class="led-dot" id="led-num"></div><span>NUM</span></div>
+            <div class="led-group"><div class="led-dot" id="led-caps"></div><span>CAPS</span></div>
+            <div class="led-group"><div class="led-dot" id="led-scroll"></div><span>SCRL</span></div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="key" id="Escape"><span>ESC</span><div class="heatmap-layer"></div></div><div style="width:20px"></div>
+                <div class="key" id="F1"><span>F1</span><div class="heatmap-layer"></div></div><div class="key" id="F2"><span>F2</span><div class="heatmap-layer"></div></div><div class="key" id="F3"><span>F3</span><div class="heatmap-layer"></div></div><div class="key" id="F4"><span>F4</span><div class="heatmap-layer"></div></div><div style="width:10px"></div>
+                <div class="key" id="F5"><span>F5</span><div class="heatmap-layer"></div></div><div class="key" id="F6"><span>F6</span><div class="heatmap-layer"></div></div><div class="key" id="F7"><span>F7</span><div class="heatmap-layer"></div></div><div class="key" id="F8"><span>F8</span><div class="heatmap-layer"></div></div><div style="width:10px"></div>
+                <div class="key" id="F9"><span>F9</span><div class="heatmap-layer"></div></div><div class="key" id="F10"><span>F10</span><div class="heatmap-layer"></div></div><div class="key" id="F11"><span>F11</span><div class="heatmap-layer"></div></div><div class="key" id="F12"><span>F12</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="key" id="Backquote"><span>~</span><div class="heatmap-layer"></div></div><div class="key" id="Digit1"><span>1</span><div class="heatmap-layer"></div></div><div class="key" id="Digit2"><span>2</span><div class="heatmap-layer"></div></div><div class="key" id="Digit3"><span>3</span><div class="heatmap-layer"></div></div><div class="key" id="Digit4"><span>4</span><div class="heatmap-layer"></div></div><div class="key" id="Digit5"><span>5</span><div class="heatmap-layer"></div></div><div class="key" id="Digit6"><span>6</span><div class="heatmap-layer"></div></div><div class="key" id="Digit7"><span>7</span><div class="heatmap-layer"></div></div><div class="key" id="Digit8"><span>8</span><div class="heatmap-layer"></div></div><div class="key" id="Digit9"><span>9</span><div class="heatmap-layer"></div></div><div class="key" id="Digit0"><span>0</span><div class="heatmap-layer"></div></div><div class="key" id="Minus"><span>-</span><div class="heatmap-layer"></div></div><div class="key" id="Equal"><span>=</span><div class="heatmap-layer"></div></div><div class="key w-200" id="Backspace"><span>BACKSPACE</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="key w-150" id="Tab"><span>TAB</span><div class="heatmap-layer"></div></div><div class="key" id="KeyQ"><span>Q</span><div class="heatmap-layer"></div></div><div class="key" id="KeyW"><span>W</span><div class="heatmap-layer"></div></div><div class="key" id="KeyE"><span>E</span><div class="heatmap-layer"></div></div><div class="key" id="KeyR"><span>R</span><div class="heatmap-layer"></div></div><div class="key" id="KeyT"><span>T</span><div class="heatmap-layer"></div></div><div class="key" id="KeyY"><span>Y</span><div class="heatmap-layer"></div></div><div class="key" id="KeyU"><span>U</span><div class="heatmap-layer"></div></div><div class="key" id="KeyI"><span>I</span><div class="heatmap-layer"></div></div><div class="key" id="KeyO"><span>O</span><div class="heatmap-layer"></div></div><div class="key" id="KeyP"><span>P</span><div class="heatmap-layer"></div></div><div class="key" id="BracketLeft"><span>[</span><div class="heatmap-layer"></div></div><div class="key" id="BracketRight"><span>]</span><div class="heatmap-layer"></div></div><div class="key w-150" id="Backslash"><span>\</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="key w-175" id="CapsLock"><span>CAPS</span><div class="heatmap-layer"></div></div><div class="key" id="KeyA"><span>A</span><div class="heatmap-layer"></div></div><div class="key" id="KeyS"><span>S</span><div class="heatmap-layer"></div></div><div class="key" id="KeyD"><span>D</span><div class="heatmap-layer"></div></div><div class="key" id="KeyF"><span>F</span><div class="heatmap-layer"></div></div><div class="key" id="KeyG"><span>G</span><div class="heatmap-layer"></div></div><div class="key" id="KeyH"><span>H</span><div class="heatmap-layer"></div></div><div class="key" id="KeyJ"><span>J</span><div class="heatmap-layer"></div></div><div class="key" id="KeyK"><span>K</span><div class="heatmap-layer"></div></div><div class="key" id="KeyL"><span>L</span><div class="heatmap-layer"></div></div><div class="key" id="Semicolon"><span>;</span><div class="heatmap-layer"></div></div><div class="key" id="Quote"><span>'</span><div class="heatmap-layer"></div></div><div class="key w-225" id="Enter"><span>ENTER</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="key w-225" id="ShiftLeft"><span>SHIFT</span><div class="heatmap-layer"></div></div><div class="key" id="KeyZ"><span>Z</span><div class="heatmap-layer"></div></div><div class="key" id="KeyX"><span>X</span><div class="heatmap-layer"></div></div><div class="key" id="KeyC"><span>C</span><div class="heatmap-layer"></div></div><div class="key" id="KeyV"><span>V</span><div class="heatmap-layer"></div></div><div class="key" id="KeyB"><span>B</span><div class="heatmap-layer"></div></div><div class="key" id="KeyN"><span>N</span><div class="heatmap-layer"></div></div><div class="key" id="KeyM"><span>M</span><div class="heatmap-layer"></div></div><div class="key" id="Comma"><span>,</span><div class="heatmap-layer"></div></div><div class="key" id="Period"><span>.</span><div class="heatmap-layer"></div></div><div class="key" id="Slash"><span>/</span><div class="heatmap-layer"></div></div><div class="key w-275" id="ShiftRight"><span>SHIFT</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="key w-125" id="ControlLeft"><span>CTRL</span><div class="heatmap-layer"></div></div><div class="key w-125" id="MetaLeft"><span>WIN</span><div class="heatmap-layer"></div></div><div class="key w-125" id="AltLeft"><span>ALT</span><div class="heatmap-layer"></div></div><div class="key w-space" id="Space"><span>VARMILO MECHANICAL</span><div class="heatmap-layer"></div></div><div class="key w-125" id="AltRight"><span>ALT</span><div class="heatmap-layer"></div></div><div class="key w-125" id="ContextMenu"><span>FN</span><div class="heatmap-layer"></div></div><div class="key w-125" id="ControlRight"><span>CTRL</span><div class="heatmap-layer"></div></div>
+            </div>
+        </div>
+
+        <div class="section nav-block">
+            <div class="row"><div class="key" id="PrintScreen"><span>PRT</span><div class="heatmap-layer"></div></div><div class="key" id="ScrollLock"><span>SCR</span><div class="heatmap-layer"></div></div><div class="key" id="Pause"><span>PAU</span><div class="heatmap-layer"></div></div></div>
+            <div style="height:4px"></div>
+            <div class="row"><div class="key" id="Insert"><span>INS</span><div class="heatmap-layer"></div></div><div class="key" id="Home"><span>HOM</span><div class="heatmap-layer"></div></div><div class="key" id="PageUp"><span>PGU</span><div class="heatmap-layer"></div></div></div>
+            <div class="row"><div class="key" id="Delete"><span>DEL</span><div class="heatmap-layer"></div></div><div class="key" id="End"><span>END</span><div class="heatmap-layer"></div></div><div class="key" id="PageDown"><span>PGD</span><div class="heatmap-layer"></div></div></div>
+            <div style="height:44px" class="nav-gap"></div>
+            <div class="row" style="justify-content:center"><div class="key" id="ArrowUp"><span>▲</span><div class="heatmap-layer"></div></div></div>
+            <div class="row"><div class="key" id="ArrowLeft"><span>◄</span><div class="heatmap-layer"></div></div><div class="key" id="ArrowDown"><span>▼</span><div class="heatmap-layer"></div></div><div class="key" id="ArrowRight"><span>►</span><div class="heatmap-layer"></div></div></div>
+        </div>
+
+        <div class="section numpad">
+            <div class="row"><div class="key" id="NumLock"><span>NUM</span><div class="heatmap-layer"></div></div><div class="key" id="NumpadDivide"><span>/</span><div class="heatmap-layer"></div></div><div class="key" id="NumpadMultiply"><span>*</span><div class="heatmap-layer"></div></div><div class="key" id="NumpadSubtract"><span>-</span><div class="heatmap-layer"></div></div></div>
+            <div class="row">
+                <div class="section">
+                    <div class="row"><div class="key" id="Numpad7"><span>7</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad8"><span>8</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad9"><span>9</span><div class="heatmap-layer"></div></div></div>
+                    <div class="row"><div class="key" id="Numpad4"><span>4</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad5"><span>5</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad6"><span>6</span><div class="heatmap-layer"></div></div></div>
+                </div><div class="key h-200" id="NumpadAdd"><span>+</span><div class="heatmap-layer"></div></div>
+            </div>
+            <div class="row">
+                <div class="section">
+                    <div class="row"><div class="key" id="Numpad1"><span>1</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad2"><span>2</span><div class="heatmap-layer"></div></div><div class="key" id="Numpad3"><span>3</span><div class="heatmap-layer"></div></div></div>
+                    <div class="row"><div class="key w-200" id="Numpad0"><span>0</span><div class="heatmap-layer"></div></div><div class="key" id="NumpadDecimal"><span>.</span><div class="heatmap-layer"></div></div></div>
+                </div><div class="key h-200" id="NumpadEnter"><span>ENT</span><div class="heatmap-layer"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="terminal" id="term"></div>
+    <div class="stats">
+        <div class="count" id="count">000000</div>
+        <canvas id="kpsChart"></canvas>
+        <div style="font-size:9px; color:#505066; letter-spacing: 2px; margin-top:5px">KPS: <span id="kps-val">0.0</span> | PEAK: <span id="kps-peak">0.0</span></div>
+    </div>
+    <div class="controls">
+        <div style="display: flex; gap: 5px;">
+            <button class="btn" id="rndBtn" style="flex:1">Random</button>
+            <button class="btn" id="rgbBtn" style="flex:1">RGB Wave</button>
+        </div>
+        <button class="btn" id="heatBtn">Heatmap: OFF</button>
+        <button class="btn" id="resetBtn" style="color:#ff3366">Wipe Memory</button>
+    </div>
+</footer>
+
+<script>
+    const APP = {
+        total: 0, 
+        history: [], 
+        heat: {}, 
+        peakKps: 0,
+        audio: new (window.AudioContext || window.webkitAudioContext)(),
+
+        init() {
+            this.load(); this.bind(); this.upd();
+            setInterval(() => this.loop(), 100);
+            this.log("Omega Engine v8.0 Initialized. All modules at 100%.");
+        },
+
+        play() {
+            const t = document.getElementById('soundType').value;
+            const o = this.audio.createOscillator(), g = this.audio.createGain();
+            if(t==='clicky'){ o.type='square'; o.frequency.setValueAtTime(600, this.audio.currentTime); o.frequency.exponentialRampToValueAtTime(10, this.audio.currentTime+0.04); }
+            else if(t==='linear'){ o.type='sine'; o.frequency.setValueAtTime(120, this.audio.currentTime); o.frequency.exponentialRampToValueAtTime(1, this.audio.currentTime+0.1); }
+            else { o.type='triangle'; o.frequency.setValueAtTime(250, this.audio.currentTime); o.frequency.exponentialRampToValueAtTime(40, this.audio.currentTime+0.07); }
+            g.gain.setValueAtTime(0.04, this.audio.currentTime); g.gain.linearRampToValueAtTime(0, this.audio.currentTime+0.04);
+            o.connect(g); g.connect(this.audio.destination); o.start(); o.stop(this.audio.currentTime+0.1);
+        },
+
+        bind() {
+            window.onkeydown = e => {
+                this.handleKey(e.code, true);
+                document.getElementById('led-caps').classList.toggle('on', e.getModifierState('CapsLock'));
+                document.getElementById('led-num').classList.toggle('on', e.getModifierState('NumLock'));
+                document.getElementById('led-scroll').classList.toggle('on', e.getModifierState('ScrollLock'));
+                if(["Space","Tab","ArrowUp","ArrowDown"].includes(e.code)) e.preventDefault();
+            };
+            window.onkeyup = e => this.handleKey(e.code, false);
+
+            document.getElementById('layoutSel').onchange = e => { document.getElementById('kb').className = 'keyboard ' + e.target.value; this.save(); };
+            document.getElementById('rndBtn').onclick = () => {
+                const r = () => '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                document.getElementById('cL').value = r(); document.getElementById('cR').value = r(); document.getElementById('cK').value = r();
+                this.upd();
+            };
+            document.getElementById('rgbBtn').onclick = (e) => { document.body.classList.toggle('rgb-active'); e.target.classList.toggle('on'); };
+            document.getElementById('heatBtn').onclick = (e) => {
+                const active = document.body.classList.toggle('show-heatmap');
+                e.target.innerText = "Heatmap: " + (active ? "ON" : "OFF");
+                e.target.classList.toggle('on', active);
+            };
+            document.getElementById('resetBtn').onclick = () => { localStorage.clear(); location.reload(); };
+            ['cL','cR','cK'].forEach(id => document.getElementById(id).oninput = () => this.upd());
+        },
+
+        handleKey(code, down) {
+            const el = document.getElementById(code);
+            if (!el) return;
+            if (down) {
+                if (!el.classList.contains('active')) {
+                    el.classList.add('active'); this.total++; this.history.push(Date.now());
+                    this.play(); this.createRipple(el);
+                    this.heat[code] = (this.heat[code] || 0) + 1;
+                    const hVal = Math.min(this.heat[code] * 8, 100);
+                    const layer = el.querySelector('.heatmap-layer');
+                    if(layer) layer.style.background = `rgba(255, ${255 - hVal*2.5}, 0, ${hVal/100})`;
+                    document.getElementById('count').innerText = this.total.toString().padStart(6, '0');
+                    this.log("In: " + code); this.save();
+                }
+            } else el.classList.remove('active');
+        },
+
+        createRipple(el) {
+            const r = document.createElement('div'); r.className = 'ripple';
+            el.appendChild(r); setTimeout(() => r.remove(), 600);
+        },
+
+        upd() {
+            const l = document.getElementById('cL').value, r = document.getElementById('cR').value, k = document.getElementById('cK').value;
+            document.documentElement.style.setProperty('--glow-l', l); document.documentElement.style.setProperty('--glow-r', r); document.documentElement.style.setProperty('--accent', k);
+            this.save();
+        },
+
+        loop() {
+            const now = Date.now();
+            this.history = this.history.filter(t => now - t < 1000);
+            const kps = this.history.length;
+            if(kps > this.peakKps) this.peakKps = kps;
+            document.getElementById('kps-val').innerText = kps.toFixed(1);
+            document.getElementById('kps-peak').innerText = this.peakKps.toFixed(1);
+        },
+
+        save() {
+            const s = { t: this.total, cl: document.getElementById('cL').value, cr: document.getElementById('cR').value, ck: document.getElementById('cK').value, lay: document.getElementById('layoutSel').value, h: this.heat };
+            localStorage.setItem('kb_omega_save', JSON.stringify(s));
+        },
+
+        load() {
+            const data = JSON.parse(localStorage.getItem('kb_omega_save'));
+            if(data) {
+                this.total = data.t || 0; this.heat = data.h || {};
+                document.getElementById('cL').value = data.cl; document.getElementById('cR').value = data.cr; document.getElementById('cK').value = data.ck;
+                document.getElementById('layoutSel').value = data.lay;
+                document.getElementById('kb').className = 'keyboard ' + data.lay;
+                document.getElementById('count').innerText = this.total.toString().padStart(6, '0');
+            }
+        },
+
+        log(m) {
+            const t = document.getElementById('term');
+            t.innerText += `[${new Date().toLocaleTimeString([], {hour12:false})}] ${m}\n`;
+            t.scrollTop = t.scrollHeight;
+        }
+    };
+    APP.init();
+</script>
+</body>
+</html>

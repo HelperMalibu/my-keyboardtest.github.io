@@ -1,0 +1,313 @@
+:root {
+    --bg-deep: #050508;
+    --bg-panel: #0a0a0f;
+    --accent: #00d4ff;
+    --glow-l: #ff4b82;
+    --glow-r: #00ff88;
+    --key-base: #11111a;
+    --text: #e0e0e0;
+    --u: 40px;
+}
+
+body {
+    background: var(--bg-deep); 
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    height: 70px; 
+    background: var(--bg-panel);
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0 30px; 
+    border-bottom: 1px solid #1a1a25; 
+    z-index: 100;
+}
+
+.logo { 
+    font-size: 18px; 
+    font-weight: 900; 
+    color: var(--accent); 
+    letter-spacing: 2px; 
+    text-shadow: 0 0 10px var(--accent); 
+}
+
+.top-ui { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+}
+
+.ui-box {
+    background: #151520; 
+    padding: 5px 10px; 
+    border-radius: 8px;
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    border: 1px solid #222;
+}
+
+.ui-box label { 
+    font-size: 8px; 
+    text-transform: uppercase; 
+    color: #505066; 
+    font-weight: 800; 
+}
+
+select { 
+    background: #000; 
+    color: var(--accent); 
+    border: 1px solid var(--accent); 
+    border-radius: 4px; 
+    font-size: 10px; 
+    cursor: pointer; 
+}
+
+.circle-picker {
+    width: 18px; 
+    height: 18px; 
+    border-radius: 50%; 
+    border: 2px solid #fff;
+    position: relative; 
+    overflow: hidden; 
+    cursor: pointer;
+}
+
+.circle-picker input { 
+    position: absolute; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%; 
+    cursor: pointer; 
+    border: none; 
+}
+
+/* VIEWPORT */
+.viewport { 
+    flex: 1; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+}
+
+.ambient-glow {
+    position: absolute; 
+    inset: 0; 
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 15% 50%, var(--glow-l) 0%, transparent 40%),
+        radial-gradient(circle at 85% 50%, var(--glow-r) 0%, transparent 40%);
+    opacity: 0.35; 
+    transition: 0.8s;
+}
+
+/* KEYBOARD */
+.keyboard {
+    background: #08080c; 
+    padding: 30px; 
+    border-radius: 15px; 
+    border: 1px solid #1a1a25;
+    display: flex; 
+    gap: 15px; 
+    position: relative; 
+    z-index: 10;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    transform: scale(0.8);
+}
+
+/* LOCKS */
+.lock-indicators { 
+    position: absolute; 
+    top: 15px; 
+    right: 30px; 
+    display: flex; 
+    gap: 15px; 
+}
+
+.led-group { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 4px; 
+}
+
+.led-dot { 
+    width: 6px; 
+    height: 6px; 
+    background: #222; 
+    border-radius: 50%; 
+    transition: 0.3s; 
+}
+
+.led-dot.on { 
+    background: var(--accent); 
+    box-shadow: 0 0 12px var(--accent); 
+}
+
+.led-group span { 
+    font-size: 7px; 
+    color: #505066; 
+    font-weight: bold; 
+}
+
+/* Layout Logic */
+.layout-80 .numpad, .layout-75 .numpad { display: none; }
+.layout-75 .nav-gap { display: none; }
+.layout-75 .nav-block { margin-left: -10px; }
+
+.section { display: flex; flex-direction: column; gap: 4px; }
+.row { display: flex; gap: 4px; }
+
+.key {
+    width: var(--u); 
+    height: var(--u); 
+    background: var(--key-base);
+    border: 1px solid #1f1f2e; 
+    border-radius: 5px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; 
+    transition: 0.1s; 
+    position: relative; 
+    overflow: hidden;
+}
+
+.key span { 
+    font-size: 9px; 
+    color: #555; 
+    font-weight: bold; 
+    pointer-events: none; 
+    z-index: 5; 
+}
+
+.key.active { 
+    background: var(--accent) !important; 
+    box-shadow: 0 0 15px var(--accent); 
+    transform: translateY(2px); 
+}
+
+.key.active span { color: #000; }
+
+/* HEATMAP & RIPPLE */
+.heatmap-layer { 
+    position: absolute; 
+    inset: 0; 
+    opacity: 0; 
+    transition: 0.5s; 
+    pointer-events: none; 
+    z-index: 1; 
+}
+
+.show-heatmap .heatmap-layer { opacity: 0.7; }
+
+.ripple {
+    position: absolute; 
+    background: rgba(255,255,255,0.4); 
+    border-radius: 50%;
+    transform: scale(0); 
+    animation: ripple-ani 0.6s linear; 
+    pointer-events: none; 
+    z-index: 4;
+}
+
+@keyframes ripple-ani { to { transform: scale(4); opacity: 0; } }
+
+/* MODS */
+.w-125 { width: 50px; } 
+.w-150 { width: 60px; } 
+.w-175 { width: 70px; }
+.w-200 { width: 84px; } 
+.w-225 { width: 94px; } 
+.w-275 { width: 114px; }
+.w-space { width: 260px; } 
+.h-200 { height: 84px; }
+
+/* FOOTER */
+footer {
+    height: 180px; 
+    background: var(--bg-panel); 
+    border-top: 1px solid #1a1a25;
+    display: grid; 
+    grid-template-columns: 350px 1fr 350px; 
+    padding: 15px 40px; 
+    gap: 20px;
+}
+
+.terminal { 
+    background: #000; 
+    border-radius: 8px; 
+    padding: 12px; 
+    font-family: monospace; 
+    font-size: 10px; 
+    color: #00ff88; 
+    overflow-y: auto; 
+    border: 1px solid #111; 
+}
+
+.stats { 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.stats .count { 
+    font-size: 48px; 
+    font-weight: 900; 
+    color: var(--accent); 
+    line-height: 1; 
+    margin-bottom: 5px; 
+}
+
+canvas#kpsChart { 
+    width: 200px; 
+    height: 40px; 
+    margin-top: 5px; 
+    opacity: 0.5; 
+}
+
+.controls { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px; 
+    justify-content: center; 
+}
+
+.btn {
+    background: #151520; 
+    border: 1px solid #2a2a35; 
+    color: #fff;
+    padding: 8px; 
+    border-radius: 6px; 
+    font-size: 9px; 
+    font-weight: bold;
+    text-transform: uppercase; 
+    cursor: pointer; 
+    transition: 0.2s;
+}
+
+.btn:hover { border-color: var(--accent); }
+
+.btn.on { 
+    background: var(--accent); 
+    color: #000; 
+    box-shadow: 0 0 10px var(--accent); 
+}
+
+@keyframes rgb-flow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+.rgb-active { animation: rgb-flow 5s linear infinite; }
